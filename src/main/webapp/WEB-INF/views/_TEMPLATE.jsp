@@ -15,7 +15,7 @@
     <body>
         <c:import url="../_MENU.jsp"></c:import>
     <contenue>
-        bienvenue sur notre site !!!
+        
     </contenue>
         <c:import url="../_PIED.jsp"></c:import>
     </body>

@@ -15,7 +15,15 @@
     <body>
         <c:import url="../_MENU.jsp"></c:import>
     <contenue>
-        bienvenue sur notre site !!!
+        <table>
+        <c:forEach items="${listehotels}" var="h">
+            <tr>
+                <td>${h.nom}</td>
+            </tr>
+        </c:forEach>
+            
+        </table>
+        
     </contenue>
         <c:import url="../_PIED.jsp"></c:import>
     </body>
