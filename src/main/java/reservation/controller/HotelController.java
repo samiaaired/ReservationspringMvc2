@@ -70,7 +70,7 @@ public class HotelController {
     
     
     
-    @RequestMapping(value = "/supprimer/{idHotel}" )
+    @RequestMapping(value = "/supprimer/{idHotel}", method = RequestMethod.GET )
     public String supprimer( @PathVariable(value = "idHotel") long id){
         
         // Supprime db DB
