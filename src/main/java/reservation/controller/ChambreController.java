@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import reservation.entity.Chambre;
+import reservation.entity.Hotel;
 import reservation.service.ChambreServiceCrud;
 import reservation.service.HotelServiceCrud;
 
@@ -74,17 +75,22 @@ public class ChambreController {
         return "redirect:/chambre/lister";
     }
     
-     @RequestMapping(value="/modifier", method = RequestMethod.POST)
-    public String modifierPOST( @ModelAttribute(value = "chambre") Chambre chambre){
+    @RequestMapping(value="/modifier", method = RequestMethod.POST)
+    public String modifierPOST( @ModelAttribute(value = "chambre") Chambre ch){
+        //associé l'hotel a la chambre
+         Long idHotel=ch.getHotel().getId();
+         Hotel h =hotelService.findOne(idHotel);
+          ch.setHotel(h);
+      // Modif en DB
         
-        // Modif en DB
-        chambreService.save(chambre);
         
-        // Redircection vers liste hotels
+        chambreService.save(ch);
+        
+        // Redirection vers la liste des chambres 
         return "redirect:/chambre/lister";
     }
     
-    @RequestMapping("/modifier/{id}")
+    @RequestMapping(value="/modifier/{id}", method = RequestMethod.GET)
     public String modifierGET(Model model,@PathVariable("id") long chambreId){
        
         //avoir la liste des hotel

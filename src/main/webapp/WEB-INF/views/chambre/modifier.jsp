@@ -7,6 +7,10 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<c:set var="cheminModif">
+    <spring:url value="/chambre/modifier"/>
+</c:set>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +19,7 @@
     </head>
     <body>
         <c:import url="../_MENU.jsp"></c:import>
-    <contenue>
+    <contenu>
        <h1>Modification chambre</h1>
             
          
@@ -38,9 +42,6 @@
             <input type="Submit"/>
         </form:form>
         </contenu>
-        <c:import url="../_PIED.jsp"></c:import> 
-    </contenue>
-        <c:import url="../_PIED.jsp"></c:import>
+       
     </body>
 </html>
-
