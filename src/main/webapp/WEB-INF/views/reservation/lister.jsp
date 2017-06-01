@@ -15,7 +15,7 @@
     <body>
         <c:import url="../_MENU.jsp"></c:import>
         
-        <a href='<spring:url value="/hotel/ajouter/${h.id}"/>'>Ajouter un hotel</a> 
+        <a href='<spring:url value="/reservation/ajouter/${r.id}"/>'>Ajouter une reservation</a> 
         <br><br>
     <contenue>
         <table border="1px">
@@ -23,25 +23,20 @@
             <tr>
                 <th> Date Reservation</th>
                 <th> Etat reservation </th>
-                <th> Nom de Rue </th>
-                <th> Localité </th>
-                <th> Code Postale</th>
-                <th> Pays </th>
-                <th> Action </th>
-                 <c:forEach items="${ListeHotels}" var="h">
+                <th> Date de Sortie </th>
+                <th> Client </th>
+                 <c:forEach items="${ListeReservations}" var="r">
+                 
             <tr>
-                <td>${h.nom}</td>
-                <td>${h.adresse.num}</td>
-                <td>${h.adresse.rue}</td>
-                <td>${h.adresse.localite}</td>
-                <td>${h.adresse.zip}</td>
-                <td>${h.adresse.pays}</td>
+                <td>${r.dateReseravation}</td>
+                <td>${r.etatReservation}</td>
+                <td>${r.dateSortie}</td>
                 
                 
                 <td>
-                       <a href='<spring:url value="/hotel/supprimer/${h.id}"/>'>Supprimer</a>   
+                       <a href='<spring:url value="/reservation/supprimer/${r.id}"/>'>Supprimer</a>   
             
-                       <a href='<spring:url value="/hotel/modifier/${h.id}"/>'>Modifier</a>
+                       <a href='<spring:url value="/reservation/modifier/${r.id}"/>'>Modifier</a>
                 </td>
             </tr>
                 

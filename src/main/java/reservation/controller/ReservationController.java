@@ -9,8 +9,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import reservation.entity.Reservation;
+import reservation.service.ChambreServiceCrud;
+import reservation.service.ClientServiceCrud;
 import reservation.service.ReservationServiceCrud;
 
 /**
@@ -24,6 +28,7 @@ public class ReservationController {
     
     @Autowired
     ReservationServiceCrud reservationService ;
+    ChambreServiceCrud chambreService;
     
     @RequestMapping(value = "/lister")
     public String lister(Model model){
@@ -35,5 +40,32 @@ public class ReservationController {
         
         //Renvoie à la vue 
         return "reservation/lister.jsp";
+    }
+    
+    
+     @RequestMapping(value = "/supprimer/{idReservation}", method = RequestMethod.GET )
+    public String supprimer( @PathVariable(value = "idReservation") long id){
+        
+        // Supprime db DB
+        this.reservationService.delete(id);
+        
+        // Redirection vers liste
+        return "redirect:/reservation/lister";
+    }
+    
+    
+     @RequestMapping(value="/ajouter",method = RequestMethod.GET)
+    public String ajouterGET(Model model){
+        
+    
+       //  model.addAttribute("listechambres", chambreService.findAll());
+          Reservation reservation= new Reservation();
+        
+       // Au lieu de mettre reservation comme dto , on va mettre ReservationDTO
+         model.addAttribute("reservation", reservation);
+        
+     //   model.addAttribute("etats",Reservation.EtatReservation.values() );
+        
+        return "/reservation/ajouter.jsp";
     }
 }
