@@ -10,7 +10,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <c:set var="cheminModif">
-    <spring:url value="/hotel/modifier"/>
+    <spring:url value="/client/modifier"/>
 </c:set>
 <!DOCTYPE html>
 <html>
@@ -20,14 +20,18 @@
     </head>
     <body>
         <c:import url="../_MENU.jsp"></c:import>
-    <contenu>
-            <h1>Modification hotel</h1>
+    <contenu >
+            <h1>Modification Chambre</h1>
             
            
-       <form:form modelAttribute="hotel" action="${cheminAjout}">
-        <label> Nom Hotel </label>
+        <form:form modelAttribute="client" action="${cheminAjout}">
+        <label> Nom Client</label>
         <form:input path="nom"/> 
         <br><br>
+        <label> Prénom Client</label>
+        <form:input path="prenom"/> 
+        <br><br>
+        
         <label> Adresse:</label>
         <br><br>
         <label> Numero de rue:</label>
@@ -41,14 +45,13 @@
         <br><br>
         <label> Code Postale </label>
         <form:input path="adresse.zip"/>
-        <br><br>
+       <br><br>
         <label> Pays </label>
         <form:input path="adresse.pays"/>
-        <br><br>
+       <br><br>
         <input type="Submit"/>
         
     </form:form>
-           
         </contenu>
     <br><br><br><br>
         <c:import url="../_PIED.jsp"></c:import>

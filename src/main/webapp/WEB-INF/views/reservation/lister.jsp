@@ -21,8 +21,8 @@
         <table border="1px">
        
             <tr>
-                <th>Nom Hotel</th>
-                <th> Numéro de Rue </th>
+                <th> Date Reservation</th>
+                <th> Etat reservation </th>
                 <th> Nom de Rue </th>
                 <th> Localité </th>
                 <th> Code Postale</th>

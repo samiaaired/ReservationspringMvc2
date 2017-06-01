@@ -77,10 +77,7 @@ public class ChambreController {
     
     @RequestMapping(value="/modifier", method = RequestMethod.POST)
     public String modifierPOST( @ModelAttribute(value = "chambre") Chambre ch){
-        //associé l'hotel a la chambre
-         Long idHotel=ch.getHotel().getId();
-         Hotel h =hotelService.findOne(idHotel);
-          ch.setHotel(h);
+        
       // Modif en DB
         
         

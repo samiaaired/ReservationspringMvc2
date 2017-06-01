@@ -25,27 +25,29 @@
     <form:form modelAttribute="hotel" action="${cheminAjout}">
         <label> Nom Hotel </label>
         <form:input path="nom"/> 
-        <br>
+        <br><br>
         <label> Adresse:</label>
+        <br><br>
         <label> Numero de rue:</label>
         <form:input path="adresse.num"/>
-        <br>
+        <br><br>
         <label> Nom de Rue </label>
         <form:input path="adresse.rue"/>
-        <br>
+        <br><br>
         <label> Localité </label>
         <form:input path="adresse.localite"/>
-        <br>
+        <br><br>
         <label> Code Postale </label>
         <form:input path="adresse.zip"/>
-        <br>
+        <br><br>
         <label> Pays </label>
         <form:input path="adresse.pays"/>
-        <br>
+        <br><br>
         <input type="Submit"/>
         
     </form:form>
     </contenu>
+    <br><br><br><br>
         <c:import url="../_PIED.jsp"></c:import>
     </body>
 </html>

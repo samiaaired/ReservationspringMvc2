@@ -27,7 +27,7 @@ import reservation.service.HotelServiceCrud;
 public class HotelController {
     
     @Autowired
-    private HotelServiceCrud service;
+    private HotelServiceCrud hotelService;
     
      @RequestMapping(value="/ajouter",method = RequestMethod.GET)
     public String ajouterGET(Model model){
@@ -42,7 +42,7 @@ public class HotelController {
     
     @RequestMapping(value="/ajouter", method = RequestMethod.POST)
     public String Ajouter(@ModelAttribute(value = "hotel") Hotel monHotel){
-        service.save(monHotel);
+        hotelService.save(monHotel);
         return "redirect:/hotel/lister";
     }
     
@@ -51,16 +51,16 @@ public class HotelController {
     public String modifierPOST( @ModelAttribute(value = "hotel") Hotel monHotel){
         
         // Modif en DB
-        service.save(monHotel);
+        hotelService.save(monHotel);
         
-        // Redircection vers liste hotels
+        // Redirection vers liste hotels
         return "redirect:/hotel/lister";
     }
     
     @RequestMapping("/modifier/{id}")
     public String modifierGET(Model model,@PathVariable("id") long hotelId){
         //récup hotel en fonction de l'id
-        Hotel h=service.findOne(hotelId);
+        Hotel h=hotelService.findOne(hotelId);
         //passe cet hotel à la vue 
         
         model.addAttribute("hotel", h);
@@ -74,7 +74,7 @@ public class HotelController {
     public String supprimer( @PathVariable(value = "idHotel") long id){
         
         // Supprime db DB
-        this.service.delete( id );
+        this.hotelService.delete( id );
         
         // Redirection vers liste
         return "redirect:/hotel/lister";
@@ -85,7 +85,7 @@ public class HotelController {
         
         
         //Récupère la liste des hotels et la passe en attribut à la vue 
-        List<Hotel> hotels = (List<Hotel>)service.findAll();
+        List<Hotel> hotels = (List<Hotel>)hotelService.findAll();
         model.addAttribute("ListeHotels", hotels);
         
         //Renvoie à la vue 

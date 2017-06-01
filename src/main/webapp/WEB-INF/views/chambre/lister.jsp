@@ -16,16 +16,23 @@
           <c:import url="../_MENU.jsp"></c:import>
         
         <a href='<spring:url value="/chambre/ajouter/${c.id}"/>'>Ajouter une chambre</a>   
+          <br><br>
     <contenue>
-        <table>
+        <table border ="1px">
+            <tr>
+                <th> Nom de Chambre </th>
+                <th> Numéro de Chambre </th>
+                <th> Prix </th>
+                <th> Action </th>
+            </tr>
         <c:forEach items="${ListesChambre}" var="c">
             <tr>
                 <td>${c.nom}</td>
+                <td>${c.num}</td>
                 <td>${c.prix}</td>
                 <td>
                        <a href='<spring:url value="/chambre/supprimer/${c.id}"/>'>Supprimer</a>   
-                </td>
-                <td>
+               
                        <a href='<spring:url value="/chambre/modifier/${c.id}"/>'>Modifier</a>
                 </td>
             </tr>
@@ -34,5 +41,6 @@
         </table>
         
     </contenue>
+    <br><br><br><br><br>
         <c:import url="../_PIED.jsp"></c:import>
 </html>
