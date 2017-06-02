@@ -28,7 +28,7 @@
                  <c:forEach items="${ListeReservations}" var="r">
                  
             <tr>
-                <td>${r.dateReseravation}</td>
+                <td>${r.dateReservation}</td>
                 <td>${r.etatReservation}</td>
                 <td>${r.dateSortie}</td>
                 

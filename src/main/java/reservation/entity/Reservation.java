@@ -40,10 +40,12 @@ public class Reservation implements Serializable {
     private Long id;
 
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
-    private Date dateReseravation;
+    private Date dateReservation;
     
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date dateSortie;
+    
+    private Double prix ;
     
     @ManyToOne
     @JoinColumn
@@ -64,11 +66,11 @@ public class Reservation implements Serializable {
     }
 
     public Date getDateReseravation() {
-        return dateReseravation;
+        return dateReservation;
     }
 
     public void setDateReseravation(Date dateReseravation) {
-        this.dateReseravation = dateReseravation;
+        this.dateReservation = dateReseravation;
     }
 
     public Date getDateSortie() {
@@ -78,6 +80,16 @@ public class Reservation implements Serializable {
     public void setDateSortie(Date dateSortie) {
         this.dateSortie = dateSortie;
     }
+
+    public Double getPrix() {
+        return prix;
+    }
+
+    public void setPrix(Double prix) {
+        this.prix = prix;
+    }
+    
+    
 
     public Client getClient() {
         return client;

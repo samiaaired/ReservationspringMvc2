@@ -22,7 +22,7 @@
         <label>  Chambre </label>
         <form:checkboxes  items="${listechambres}" itemLabel="nom" itemValue="id" path="chambre.id"/>
         <label> Date reservation</label>
-        <form:input  path="dateReseravation"/>
+        <form:input  path="dateReservation"/>
         <br>
         <label> Date Sortie </label>
         <form:input  path="dateSortie"/>

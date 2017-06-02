@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import reservation.dto.ReservationDTO;
 import reservation.entity.Reservation;
 import reservation.service.ChambreServiceCrud;
 import reservation.service.ClientServiceCrud;
@@ -59,10 +60,10 @@ public class ReservationController {
         
     
        //  model.addAttribute("listechambres", chambreService.findAll());
-          Reservation reservation= new Reservation();
+          ReservationDTO reservationdto= new ReservationDTO();
         
        // Au lieu de mettre reservation comme dto , on va mettre ReservationDTO
-         model.addAttribute("reservation", reservation);
+         model.addAttribute("reservation", reservationdto);
         
      //   model.addAttribute("etats",Reservation.EtatReservation.values() );
         
